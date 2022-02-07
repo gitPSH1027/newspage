@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 데이터 소스 mysql-->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/newspage?serverTimezone=Asia/Seoul"/>
+		<property name="username" value="psh"/>
+		<property name="password" value="1111"/>
+	</bean>
+	<!-- 마이바티스 factory객체생성 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property value="classpath:/mybatisConfig.xml" name="configLocation"/>
+		<property value="classpath:/mappers/**/*Mapper.xml" name="mapperLocations"/>
+	</bean>
+	<!-- 마이바티스 세션생성 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>	
+	<!--  파일저장경로 -->
+	<bean id="saveDir" class="java.lang.String">
+		<constructor-arg value="C:\Users\psh\Desktop\새 폴더\박성호\국비과정_자바기반_수업내용\서버파일\saveMemberIconDirectory/"/>
+	</bean>
+	<!-- 트랜잭션 어노테이션 자동스캔 -->
+	<tx:annotation-driven/>
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<!--암호화  -->
+	<bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	
+	<!-- 이메일전송 -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com"/> <!--구글메일서버  -->
+		<property name="port" value="587"/> <!--포트  -->
+		<property name="username" value="parksh040308@gmail.com"/> <!-- 아이디 -->
+		<property name="password" value="awki?gh!@z$!!"/> <!--  비밀번호-->
+		<property name="javaMailProperties" > <!--Map형태  -->
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mailsmtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+				<!-- openjdk에서 사용 -->
+				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
+
