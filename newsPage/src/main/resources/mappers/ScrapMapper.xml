@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.web.ScrapMapper">
+	<!-- resultType :알리아스명은 mybatisConfig.xml에 정의-->
+	<insert id="insert">
+		insert into scrap(email, title, description, link)
+		values(#{email},#{title},#{description},#{link})
+	</insert>
+	<delete id="delete">
+		delete from scrap
+		where snum=#{snum}
+	</delete>
+	<select id="totCnt" resultType="int">
+		select count(*) totcnt from scrap
+		where email=#{eamil}
+	</select>
+	
+	<sql id="find">
+		<if test="findkey == 'title'">
+			and title like concat('%',#{findvalue},'%')
+		</if>
+		<if test="findkey == 'description'">
+			and description like concat('%',#{findvalue},'%')
+		</if>
+		<if test="findkey == 'titleAndDescription'">
+			and (title like concat('%',#{findvalue},'%')
+			or description like concat('%',#{findvalue},'%'))
+		</if>
+	</sql>
+	
+	<select id="selectList" resultType="Scrap">
+		select * from scrap
+		where email=#{email} <!-- 조회조건이 x있음 -->
+		<include refid="find"/>
+		order by snum desc
+		limit #{startnum} , #{perpage}
+	</select>
+</mapper>

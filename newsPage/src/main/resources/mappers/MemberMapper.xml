@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.web.MemberMapper">
+	<!-- resultType :알리아스명은 mybatisConfig.xml에 정의-->
+	<insert id="insert">
+		insert into member(email, passwd, zipcode, addr, addrdetail, gender, birthyear, profilename,age,emailauth,simplejoin)
+		values(#{email},#{passwd},#{zipcode},#{addr},#{addrdetail},#{gender},#{birthyear},#{profilename},date_format(now(),'%Y')-#{birthyear},#{emailauth},#{simplejoin})
+	</insert>
+	<update id="update">
+		update member
+		set passwd = #{passwd},
+		zipcode = #{zipcode},
+		addr = #{addr},
+		addrdetail = #{addrdetail},
+		gender = #{gender},
+		birthyear = #{birthyear},
+		age = date_format(now(),'%Y')-#{birthyear},
+		profilename = #{profilename}
+		where email = #{email}
+	</update>
+	<!--이메일인증시 업데이트  -->
+	<update id="emailAuthUpdate">
+		update member
+		set emailauth = '1'
+		where email = #{email}
+	</update>
+	<delete id="delete">
+		delete from member 
+		where email=#{email}
+	</delete>
+	<select id="selectOne" resultType="Member">
+		select * from member
+		where email=#{email}	
+	</select>
+	<select id="selectList" resultType="Member">
+		select * from member
+	</select>
+</mapper>

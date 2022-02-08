@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 널허용:매퍼에서 게터를이용해값을 가져올때 null이 가능 -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		<setting name="callSettersOnNulls" value="true"/>
+	</settings>
+
+	<typeAliases>
+		<typeAlias type="com.my.web.dto.Member" alias="Member"/>
+		<typeAlias type="com.my.web.dto.Scrap" alias="Scrap"/>
+		<typeAlias type="com.my.web.dto.Statistics" alias="Statistics"/>
+		<typeAlias type="com.my.web.dto.Cnt" alias="Cnt"/>
+	</typeAliases>
+	
+</configuration>

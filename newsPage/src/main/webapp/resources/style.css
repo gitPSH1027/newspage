@@ -1,0 +1,421 @@
+@charset "UTF-8";
+
+nav {
+	font-size: 12pt;
+	font-family: 'PT Sans', Arial, Sans-serif;
+	position: relative;
+}
+
+nav ul {
+	padding: 0;
+	margin: 0 auto;
+	width: auto;
+}
+
+
+nav a {
+	line-height: 50px;
+	height: 50px;
+}
+
+nav li a {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+nav li:last-child a {
+	border-right: 0;
+}
+
+nav a#pull {
+	display: none;
+}
+
+html {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+ul {
+	/*list-style-type: none;*/
+	margin: 0;
+	padding: 0;
+	background-color: lightgray;
+	text-align: left;
+}
+
+li {
+	/*position: relative;*/
+	display: inline-block;
+}
+
+li a {
+	color: black;
+	text-align: center;
+	padding: 14.5px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	/*color: #597812;*/
+	color: white;
+	font-weight: normal;
+}
+
+.menu {
+	width: 5000px;
+	height: 50px;
+	text-align: center;
+	max-width: 100%;
+	background-position: center;
+	background-size: cover;
+	background-color: #333333;
+	position: absolute;
+	z-index: 1;
+}
+
+header {
+	background: lightgray;
+	height: 100px;
+}
+
+main {
+	min-height: 800px;
+}
+
+footer {
+	background: darkgray;
+	height: 100px;
+}
+
+#dupCheck, #zipSearch, #passChk {
+	position: absolute;
+	left: 300px;
+	padding: 6px 12px;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	border: 1px solid transparent;
+}
+
+body {
+	background-image: #34495e;
+}
+
+.joinForm {
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	padding: 30px, 20px;
+	background-color: #FFFFFF;
+	text-align: center;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.joinForm h2 {
+	text-align: center;
+	margin: 30px;
+}
+
+.frmLog {
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	padding: 30px, 20px;
+	background-color: #FFFFFF;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+}
+
+.frmLog h2 {
+	text-align: center;
+	margin: 30px;
+}
+
+.detailForm {
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	padding: 30px, 20px;
+	background-color: #FFFFFF;
+	text-align: center;
+	top: 43%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+}
+
+.detailForm h2 {
+	text-align: center;
+	margin: 30px;
+}
+
+.certForm {
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	padding: 30px, 20px;
+	background-color: #FFFFFF;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+}
+
+.certForm h2 {
+	text-align: center;
+	margin: 30px;
+}
+
+.textForm {
+	border-bottom: 2px solid #adadad;
+	margin: 30px;
+	padding: 10px 10px;
+}
+
+.id {
+	width: 100%;
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+}
+
+.pw {
+	width: 100%;
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+}
+
+.email {
+	width: 100%;
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+}
+
+.btn {
+	position: relative;
+	left: 40%;
+	transform: translateX(-50%);
+	margin-bottom: 40px;
+	width: 80%;
+	height: 40px;
+	background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+	background-position: left;
+	background-size: 200%;
+	color: white;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+	transition: 0.4s;
+	display: inline;
+}
+
+#imgSearch {
+  position : absolute;
+  width: 17px;
+  top: 10px;
+  right: 12px;
+  margin: 0;
+}
+
+.btn:hover {
+	background-position: right;
+}
+
+/*radio버튼*/
+.test_obj input[type="radio"] {
+	display: none;
+}
+
+.test_obj input[type="radio"]+span {
+	display: inline-block;
+	padding: 10px 80px;
+	border: 1px solid #dfdfdf;
+	background-color: #ffffff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.test_obj input[type="radio"]:checked+span {
+	background-color: grey;
+	color: #ffffff;
+}
+/*파일선택*/
+.filebox .upload-name {
+	display: inline-block;
+	height: 40px;
+	padding: 0 10px;
+	vertical-align: middle;
+	border: none;
+	border-right: 0px;
+	border-top: 0px;
+	border-left: 0px;
+	border-bottom: 0px;
+	width: 66%;
+	color: #999999;
+	outline: none;
+}
+
+.filebox label {
+	display: inline-block;
+	padding: 10px 20px;
+	color: #fff;
+	vertical-align: middle;
+	background-color: #999999;
+	cursor: pointer;
+	height: 40px;
+	margin-left: 10px;
+}
+
+.filebox input[type="file"] {
+	position: absolute;
+	width: 0;
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+}
+
+/* select css */
+select {
+	width: 100px; /* 원하는 너비설정 */
+	padding: .8em .5em; /* 여백으로 높이 설정 */
+	font-family: inherit; /* 폰트 상속 */
+	background:
+		url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg)
+		no-repeat 95% 50%; /* 네이티브 화살표를 커스텀 화살표로 대체 */
+	border: 1px solid #999;
+	border-radius: 0px; /* iOS 둥근모서리 제거 */
+	-webkit-appearance: none; /* 네이티브 외형 감추기 */
+	-moz-appearance: none;
+	appearance: none;
+	font-size: 10px;
+}
+
+#selectBt1 {
+	background-color: white;
+	color: black;
+	padding: 4px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+#selectBt1 {
+	background-color: white;
+	color: black;
+	border: 2px solid #e7e7e7;
+}
+
+#selectBt1:hover {
+	background-color: #e7e7e7;
+}
+
+/*뉴스검색버튼  */
+.search {
+	position: relative;
+	width: 400px;
+	height: 30px;
+	margin: 10px auto;
+}
+
+#searchH2 {
+	position: relative;
+	text-align: center;
+	width: 400px;
+	height: 30px;
+	margin: 10px auto;
+}
+
+#searchFindvalue {
+	width: 100%;
+	border: 1px solid #bbb;
+	border-radius: 8px;
+	padding: 10px 12px;
+	font-size: 14px;
+}
+
+.img-circle {
+	position: absolute;
+	width: 40px;
+	top: 30px;
+	right: 350px;
+	margin: 0;
+}
+
+/*뉴스 내용 */
+#showTitle {
+	width: 600px;
+	font-size: 40px;
+}
+
+#showDescription {
+	font-size: 20px;
+	margin-right: 500px
+}
+
+/*통계 그래프  */
+#graphTitle {
+	position: relative;
+	text-align: center;
+}
+
+#selectAge {
+	position: absolute;
+	background-color: #FFFFFF;
+	text-align: center;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+}
+
+#selectAge h2 {
+	text-align: center;
+	margin: 30px;
+}
+/* 오시는길 */
+#map {
+	margin: 0 auto;
+}
+
+#placeForm {
+	position: absolute;
+	padding: 30px, 20px;
+	background-color: #FFFFFF;
+	text-align: center;
+	top: 48%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+}
+
+#placeForm h2 {
+	text-align: center;
+	margin: 30px;}
