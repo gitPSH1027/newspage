@@ -12,6 +12,10 @@
 		delete from scrap
 		where snum=#{snum}
 	</delete>
+	<delete id="deleteAll">
+		delete from scrap
+		where email=#{email}
+	</delete>
 	<select id="totCnt" resultType="int">
 		select count(*) totcnt from scrap
 		where email=#{eamil}

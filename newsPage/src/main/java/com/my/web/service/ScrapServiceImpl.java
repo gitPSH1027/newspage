@@ -95,4 +95,9 @@ public class ScrapServiceImpl implements ScrapService{
 		return msg;
 	}
 
+	@Override
+	public int deleteAll(String email) {
+		return sdao.deleteAll(email);
+	}
+
 }

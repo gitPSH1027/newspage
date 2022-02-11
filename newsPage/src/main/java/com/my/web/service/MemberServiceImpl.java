@@ -21,6 +21,8 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDAO mdao; // Member dao
 	@Autowired
 	private MailSendService ms; // 메일 전송
+	@Autowired
+	private ScrapService ss;
 
 	// 아이디 중복체크 //ajax 비동기 방식으로 구현
 	@Transactional
@@ -81,6 +83,9 @@ public class MemberServiceImpl implements MemberService {
 		Map<String, Object> result = new HashMap<String, Object>();
 		String msg;
 		boolean check;
+		// scrap테이블 삭제
+		ss.deleteAll(email);
+
 		int cnt = mdao.delete(email);
 
 		if (cnt > 0) {
